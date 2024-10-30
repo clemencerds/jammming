@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Tracklist from '../Tracklist/Tracklist.js'
 
-function Playlist({playlistTracks=[]}) {
+function Playlist({playlistTracks=[], removeTrack}) {
 const [playlistName, setPlaylistName] = useState('New playlist');
 const handleName = (event) => setPlaylistName(event.target.value);
 
@@ -16,7 +16,7 @@ return (
             <li className="list-group-item" key= {track.id}>
                 <h3>{track.name}</h3>
                 <p>{track.artist} - {track.album}</p>
-                <button>-</button>
+                <button onClick= {() => removeTrack(track)} >-</button>
             </li>)}     
         </ul>
     </div>

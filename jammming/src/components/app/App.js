@@ -24,32 +24,11 @@ function App () {
     album : 'J.Lo',
     id : 'id3'
     }
-]);
+  ]);
 
-const [playlistTracks, setPlaylistTracks] = useState ([]);
-// const toggleTrack = ({target}) => {
-//     const clickedTrack = target.value;
-//     setPlaylistTracks((prev) => {
-//         if (prev.includes(clickedTrack)) {
-//             return prev.filter (t => t!== clickedTrack);
-//         }
-//         else {
-//             return [clickedTrack, ...prev];
-//         }
-//     })
-// };
-  // const toggleTrack = (track, clickedTrack) => {
-  //   setPlaylistTracks((prev) => {
-  //             if (prev.includes(clickedTrack)) {
-  //                 return prev.filter (track => track.id!== clickedTrack.id);
-  //             }
-  //             else {
-  //                 return [clickedTrack, ...prev];
-  //             }
-  //   })
-  // }
+  const [playlistTracks, setPlaylistTracks] = useState ([]);
 
-  const toggleTrack = (track) => {
+  const addTrack = (track) => {
     setPlaylistTracks((prevTracks) => {
     if (!prevTracks.some(clickedTrack => clickedTrack.id === track.id)) {
       return [...prevTracks, track]
@@ -60,13 +39,23 @@ const [playlistTracks, setPlaylistTracks] = useState ([]);
     })  
   };
 
+  const removeTrack = (track) => {
+    setPlaylistTracks((prevTracks) => {
+      
+      if (prevTracks.some(clickedTrack => clickedTrack.id === track.id)) {
+        const filteredPlaylist = prevTracks.filter((clickedTrack) => track.id !== clickedTrack.id);
+        return filteredPlaylist
+      }
+    })
+  };
+
 
   return (
     <div>
       <h1>jammming</h1>
       <SearchBar />
-      <SearchResults tracks={tracks} toggleTrack={toggleTrack} />
-      <Playlist playlistTracks={playlistTracks}/>
+      <SearchResults tracks={tracks} addTrack={addTrack} />
+      <Playlist playlistTracks={playlistTracks} removeTrack={removeTrack}/>
     </div>
   )
 }

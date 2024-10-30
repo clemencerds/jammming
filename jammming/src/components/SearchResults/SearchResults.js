@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Playlist from '../Playlist/Playlist.js';
 import Tracklist from '../Tracklist/Tracklist.js';
 
-function SearchResults ({tracks, toggleTrack}) {
+function SearchResults ({tracks, addTrack}) {
     
 
     return (
@@ -14,7 +14,7 @@ function SearchResults ({tracks, toggleTrack}) {
             <li className="list-group-item" key= {track.id}>
                 <h3>{track.name}</h3>
                 <p>{track.artist} - {track.album}</p>
-                <button onClick= {() => toggleTrack(track)} >+</button>
+                <button onClick= {() => addTrack(track)} >+</button>
             </li>)}     
         </ul>
         </div>
