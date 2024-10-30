@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Tracklist from '../Tracklist/Tracklist.js'
 
-function Playlist({playlistTracks}) {
+function Playlist({playlistTracks=[]}) {
 const [playlistName, setPlaylistName] = useState('New playlist');
 const handleName = (event) => setPlaylistName(event.target.value);
 

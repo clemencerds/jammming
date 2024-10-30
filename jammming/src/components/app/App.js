@@ -51,9 +51,11 @@ const [playlistTracks, setPlaylistTracks] = useState ([]);
 
   const toggleTrack = (track) => {
     setPlaylistTracks((prevTracks) => {
-    if (playlistTracks.some(clickedTrack => clickedTrack.id !== track.id))
-      {
-      return [...prevTracks, track];
+    if (!prevTracks.some(clickedTrack => clickedTrack.id === track.id)) {
+      return [...prevTracks, track]
+      }
+    else {
+      return prevTracks;
     }
     })  
   };

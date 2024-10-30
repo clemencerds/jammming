@@ -14,7 +14,7 @@ function SearchResults ({tracks, toggleTrack}) {
             <li className="list-group-item" key= {track.id}>
                 <h3>{track.name}</h3>
                 <p>{track.artist} - {track.album}</p>
-                <button onClick= {toggleTrack} >+</button>
+                <button onClick= {() => toggleTrack(track)} >+</button>
             </li>)}     
         </ul>
         </div>
