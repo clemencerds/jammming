@@ -1,11 +1,22 @@
-import React from 'react';
-import Tracklist from '../Tracklist/Tracklist.js'
+import React, {useState} from 'react';
+import Playlist from '../Playlist/Playlist.js';
+import Tracklist from '../Tracklist/Tracklist.js';
 
-function SearchResults () {
+function SearchResults ({tracks, toggleTrack}) {
+    
+
     return (
         <div>
             <h2>Results</h2>
-            <Tracklist/>
+            
+        <ul className="list-group">
+            {tracks.map(track => 
+            <li className="list-group-item" key= {track.id}>
+                <h3>{track.name}</h3>
+                <p>{track.artist} - {track.album}</p>
+                <button onClick= {toggleTrack} >+</button>
+            </li>)}     
+        </ul>
         </div>
     )
     
