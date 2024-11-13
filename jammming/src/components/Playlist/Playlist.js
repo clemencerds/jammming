@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
 import Tracklist from '../Tracklist/Tracklist.js'
 
-function Playlist({playlistTracks=[], removeTrack}) {
-const [playlistName, setPlaylistName] = useState('New playlist');
-const handleName = (event) => setPlaylistName(event.target.value);
+function Playlist({playlistName, handleName, playlistTracks=[], removeTrack, resetPlaylist}) {
 
+const tracksUri = ['spotify:track:7huo2wvrCgRucUsjdSDLQV', 'spotify:track:09mkdGhqb5ySKVsnkx9hy2', 'spotify:track:1fgvJXlcZ7uIddMpqsqw0L'];
 
 
 
 return (
     <div>
-        <h2 onClick={handleName}>{playlistName}</h2>
+        <input className="form-control" type='text' id='playlistName' defaultValue={'my new playlist'} onChange={handleName}/>
         <ul className="list-group">
             {playlistTracks.map(track => 
             <li className="list-group-item" key= {track.id}>
@@ -19,6 +18,7 @@ return (
                 <button onClick= {() => removeTrack(track)} >-</button>
             </li>)}     
         </ul>
+        <input type='submit' className='btn btn-outline-dark' value='save to Spotify' onClick={resetPlaylist} />
     </div>
 )
 };

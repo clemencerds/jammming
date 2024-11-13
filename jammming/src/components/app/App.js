@@ -26,6 +26,9 @@ function App () {
     }
   ]);
 
+  const [playlistName, setPlaylistName] = useState('New playlist');
+  const handleName = (event) => setPlaylistName(event.target.value);
+
   const [playlistTracks, setPlaylistTracks] = useState ([]);
 
   const addTrack = (track) => {
@@ -49,15 +52,25 @@ function App () {
     })
   };
 
+  const resetPlaylist = () => {
+    setPlaylistTracks([])
+    setPlaylistName('my new playlist')
+  };
+
+
 
   return (
     <div>
       <h1>jammming</h1>
       <SearchBar />
       <SearchResults tracks={tracks} addTrack={addTrack} />
-      <Playlist playlistTracks={playlistTracks} removeTrack={removeTrack}/>
+      <Playlist playlistName={playlistName} 
+                handleName={handleName} 
+                playlistTracks={playlistTracks} 
+                removeTrack={removeTrack} 
+                resetPlaylist={resetPlaylist}/>
     </div>
   )
-}
+};
 
 export default App;
