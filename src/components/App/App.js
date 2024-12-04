@@ -7,27 +7,33 @@ import Spotify from '/Users/clemence2/Projects/jammming/src/util/Spotify.js'
 
 function App () {
   const [tracks, setTracks] = useState([
-    {
-    name : 'aint no other man',
-    artist : 'Christina Aguilera',
-    album : 'Back to Basics',
-    id : 'id1'
-    },
-    {
-    name : 'bootylicious',
-    artist : 'Destinys Child',
-    album : 'Survivor',
-    id : 'id2'
-    },
-    {
-    name : 'love dont cost a thing',
-    artist : 'Jennifer Lopez',
-    album : 'J.Lo',
-    id : 'id3'
-    }
+    // {
+    // name : 'aint no other man',
+    // artist : 'Christina Aguilera',
+    // album : 'Back to Basics',
+    // id : 'id1'
+    // },
+    // {
+    // name : 'bootylicious',
+    // artist : 'Destinys Child',
+    // album : 'Survivor',
+    // id : 'id2'
+    // },
+    // {
+    // name : 'love dont cost a thing',
+    // artist : 'Jennifer Lopez',
+    // album : 'J.Lo',
+    // id : 'id3'
+    // }
   ]);
 
-  const [playlistName, setPlaylistName] = useState('New playlist');
+  const [term, setTerm] = useState('');
+
+  const search = () => {
+    Spotify.search(term).then(setTracks);
+  }
+
+  const [playlistName, setPlaylistName] = useState('');
   const handleName = (event) => setPlaylistName(event.target.value);
 
   const [playlistTracks, setPlaylistTracks] = useState ([]);
@@ -63,7 +69,7 @@ function App () {
   return (
     <div>
       <h1>jammming</h1>
-      <SearchBar />
+      <SearchBar term={term} setTerm={setTerm} onSearch={search}/>
       <SearchResults tracks={tracks} addTrack={addTrack} />
       <Playlist playlistName={playlistName} 
                 handleName={handleName} 
