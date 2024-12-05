@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import Playlist from '../Playlist/Playlist.js';
-import Tracklist from '../Tracklist/Tracklist.js';
+
 
 function SearchResults ({tracks, addTrack}) {
     
@@ -14,7 +13,7 @@ function SearchResults ({tracks, addTrack}) {
             <li className="list-group-item" key= {track.id}>
                 <h3>{track.name}</h3>
                 <p>{track.artist} - {track.album}</p>
-                <button onClick= {() => addTrack(track)} >+</button>
+                <button className="btn btn-outline-dark" onClick= {() => addTrack(track)} >+</button>
             </li>)}     
         </ul>
         </div>

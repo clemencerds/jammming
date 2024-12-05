@@ -12,7 +12,7 @@ function SearchBar({onSearch, term, setTerm}) {
     return (
         <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">
-            <form className="d-flex" role="search">
+            <form className="d-flex" role="search" >
                 <input className="form-control me-2" 
                        id="searchBar" type="search" 
                        aria-label="Search" 
@@ -20,7 +20,8 @@ function SearchBar({onSearch, term, setTerm}) {
                        value={term}/>
                 <button className="btn btn-outline-success" 
                         type="button" 
-                        onClick={search}>
+                        onClick={search}
+                >
                 Search
                 </button>
             </form>

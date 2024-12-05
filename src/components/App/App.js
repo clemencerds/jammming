@@ -6,26 +6,7 @@ import Playlist from '../Playlist/Playlist.js'
 import Spotify from '/Users/clemence2/Projects/jammming/src/util/Spotify.js'
 
 function App () {
-  const [tracks, setTracks] = useState([
-    // {
-    // name : 'aint no other man',
-    // artist : 'Christina Aguilera',
-    // album : 'Back to Basics',
-    // id : 'id1'
-    // },
-    // {
-    // name : 'bootylicious',
-    // artist : 'Destinys Child',
-    // album : 'Survivor',
-    // id : 'id2'
-    // },
-    // {
-    // name : 'love dont cost a thing',
-    // artist : 'Jennifer Lopez',
-    // album : 'J.Lo',
-    // id : 'id3'
-    // }
-  ]);
+  const [tracks, setTracks] = useState([]);
 
   const [term, setTerm] = useState('');
 
@@ -33,8 +14,9 @@ function App () {
     Spotify.search(term).then(setTracks);
   }
 
-  const [playlistName, setPlaylistName] = useState('');
+  const [playlistName, setPlaylistName] = useState('My new playlist');
   const handleName = (event) => setPlaylistName(event.target.value);
+
 
   const [playlistTracks, setPlaylistTracks] = useState ([]);
 
@@ -60,10 +42,14 @@ function App () {
   };
 
   const resetPlaylist = () => {
-    setPlaylistTracks([])
+    setPlaylistTracks([]);
     setPlaylistName('my new playlist')
   };
 
+  const savePlaylist = () => {
+    const tracksUri = playlistTracks.map((playlistTrack) => playlistTrack.uri);
+    Spotify.savePlaylist(playlistName, tracksUri).then(() => resetPlaylist())
+  };
 
 
   return (
@@ -75,7 +61,7 @@ function App () {
                 handleName={handleName} 
                 playlistTracks={playlistTracks} 
                 removeTrack={removeTrack} 
-                resetPlaylist={resetPlaylist}/>
+                onSave={savePlaylist}/>
     </div>
   )
 };
