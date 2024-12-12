@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 10rem;
+}
+
+.searchBar button {
+    height: 4rem;
+    width: 12rem;
+    font-size: 1.2rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    border-color: #7B3227;
+    color: #7B3227;
+    font-weight: 600;
+    
+}
+
+.searchBar button:hover {
+    background-color: #7B3227;
+}
+
+.searchBar input {
+    font-size: 1.2rem;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .container {
+        margin-bottom: 1rem;
+    }
+
+    .searchBar form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .searchBar input {
+        width: 89%;
+        margin-bottom: 1.5rem;
+    }
+
+    .searchBar button {
+        width:30%;
+        height: 3rem;
+        background-color: #7B3227;
+        color: white;
+    }
+}

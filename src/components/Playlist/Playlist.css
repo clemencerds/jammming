@@ -1,0 +1,50 @@
+.playlist {
+    width: 37%;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul. button {
+   align-self: center; 
+}
+
+.playlist .form {
+    all: unset;
+    font-size: 3rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #393E33;
+}
+
+#save {
+    background-color: #7B3227;
+    color: white;
+    border-color: #7B3227;
+    align-self: center;
+    height: 3.7rem;
+    width: 12rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+@media only screen and (max-width:800px) {
+
+    .playlist {
+        align-self: center;
+        width: 80%;
+    }
+
+    .playlist .form {
+        font-size: 2.5rem;
+    }
+}

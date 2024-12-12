@@ -4,21 +4,21 @@ import SearchBar from '../SearchBar/SearchBar.js'
 import SearchResults from '../SearchResults/SearchResults.js'
 import Playlist from '../Playlist/Playlist.js'
 import Spotify from '/Users/clemence2/Projects/jammming/src/util/Spotify.js'
+import './App.css'
 
 function App () {
   const [tracks, setTracks] = useState([]);
-
   const [term, setTerm] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const [playlistName, setPlaylistName] = useState(`Your playlist's name`);
+  const [playlistTracks, setPlaylistTracks] = useState ([]);
 
   const search = () => {
     Spotify.search(term).then(setTracks);
+    setIsVisible(!isVisible);
   }
-
-  const [playlistName, setPlaylistName] = useState('My new playlist');
+  
   const handleName = (event) => setPlaylistName(event.target.value);
-
-
-  const [playlistTracks, setPlaylistTracks] = useState ([]);
 
   const addTrack = (track) => {
     setPlaylistTracks((prevTracks) => {
@@ -33,7 +33,6 @@ function App () {
 
   const removeTrack = (track) => {
     setPlaylistTracks((prevTracks) => {
-      
       if (prevTracks.some(clickedTrack => clickedTrack.id === track.id)) {
         const filteredPlaylist = prevTracks.filter((clickedTrack) => track.id !== clickedTrack.id);
         return filteredPlaylist
@@ -51,19 +50,26 @@ function App () {
     Spotify.savePlaylist(playlistName, tracksUri).then(() => resetPlaylist())
   };
 
+  
 
   return (
     <div>
-      <h1>jammming</h1>
-      <SearchBar term={term} setTerm={setTerm} onSearch={search}/>
+      <h1>ja<span className='mmm'>mmm</span>ing</h1>
+      <SearchBar term={term} 
+                 setTerm={setTerm} 
+                 onSearch={search}/>
+      {isVisible &&
+      <div className='app-tracks'>
       <SearchResults tracks={tracks} addTrack={addTrack} />
       <Playlist playlistName={playlistName} 
                 handleName={handleName} 
                 playlistTracks={playlistTracks} 
                 removeTrack={removeTrack} 
                 onSave={savePlaylist}/>
+      </div>}
     </div>
   )
 };
+
 
 export default App;

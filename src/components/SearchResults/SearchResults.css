@@ -1,0 +1,43 @@
+.searchResults {
+    width: 37%;
+    
+}
+
+.list-group {
+    max-height: 50rem;
+    overflow-y: scroll;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+
+.list-group-item {
+    max-height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(124, 113, 67, 0.8);
+    color: white;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+}
+
+.track {
+    max-width: 80%;
+}
+
+button {
+   align-self: center;
+   height: 3rem;
+   width: 3rem; 
+}
+
+@media only screen and (max-width:800px) {
+
+    .searchResults {
+        align-self: center;
+        width: 80%;
+    }
+
+    .list-group {
+        max-height: 20rem;
+    }
+}
