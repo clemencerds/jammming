@@ -25,6 +25,7 @@ nav {
 
 .searchBar button:hover {
     background-color: #7B3227;
+    border: #7B3227;
 }
 
 .searchBar input {

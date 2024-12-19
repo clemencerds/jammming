@@ -10,19 +10,21 @@
     justify-content: space-between;
 }
 
-ul. button {
-   align-self: center; 
-}
+
 
 .playlist .form {
     all: unset;
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-family: 'Kumbh Sans', sans-serif;
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-weight: 600;
     line-height: 1.2;
     color: #393E33;
+    border: solid 0.1rem rgba(124, 113, 67, 1); 
+    border-radius: 8px;
+    width: 80%;
+    padding: 1rem;
 }
 
 #save {
@@ -30,11 +32,17 @@ ul. button {
     color: white;
     border-color: #7B3227;
     align-self: center;
-    height: 3.7rem;
-    width: 12rem;
-    font-size: 1.2rem;
+    height: 4rem;
+    width: 13rem;
+    font-size: 1.4rem;
     font-weight: 500;
     font-family: 'Kumbh Sans', sans-serif;
+}
+
+#save:hover {
+    background-color: rgba(124, 113, 67, 1);
+    color: white;
+    border:rgba(124, 113, 67, 1);
 }
 
 @media only screen and (max-width:800px) {
@@ -45,6 +53,6 @@ ul. button {
     }
 
     .playlist .form {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
