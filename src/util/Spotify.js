@@ -1,6 +1,6 @@
 
 const clientId = 'e848b059852542e787585917f7b62a9b';
-const redirectUri = 'https://clemencerds.github.io/jammming/;
+const redirectUri = 'https://clemencerds.github.io/jammming/';
 let accessToken;
 
 const Spotify = {
