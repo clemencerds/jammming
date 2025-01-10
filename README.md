@@ -20,14 +20,14 @@ The purpose of this project was to practice and solidify my knowledge of React a
 * **API authentication** : a secure user experience through Spotify's OAuth flow
 
 * **Track search** : 
-..* search for tracks in the Spotify library by title, artist or album name.
-..* display of tracks details in the search results : title, artist and album. 
+  * search for tracks in the Spotify library by title, artist or album name.
+  * display of tracks details in the search results : title, artist and album. 
 
 * **Playlist management** : 
-..* browse through the search results to add tracks to the user's own playlist. 
-..* remove tracks from the playlist.
-..* Change the name of the playlist. 
-..* Add it to the user's Spotify account.
+  * browse through the search results to add tracks to the user's own playlist. 
+  * remove tracks from the playlist.
+  * Change the name of the playlist. 
+  * Add it to the user's Spotify account.
 
 
 ## Future enhancements
